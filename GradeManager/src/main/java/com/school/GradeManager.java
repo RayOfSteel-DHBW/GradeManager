@@ -15,9 +15,10 @@ public class GradeManager {
         while (running) {
             System.out.println("\nMenu:");
             System.out.println("[1] View Grades");
-            System.out.println("[2] New Subject");
+            System.out.println("[2] New Course");
             System.out.println("[3] Enter Grade");
             System.out.println("[4] Calculate GPA");
+            System.out.println("[5] Change File Mode");
             System.out.println("[5] Exit");
             System.out.print("Choose an option: ");
             String choice = scanner.nextLine();
@@ -27,9 +28,8 @@ public class GradeManager {
                     System.out.println("[1] View Grades");
                     break;
                 case "2":
-                    System.out.println("[2] New Subject");
-
-                    
+                    System.out.println("[2] New Course");
+                    // TODO: Implement add grade
                     break;
                 case "3":
                     System.out.println("[3] Enter Grade");

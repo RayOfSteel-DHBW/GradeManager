@@ -2,28 +2,28 @@ package com.school;
 
 import java.util.ArrayList;
 
-import javax.security.auth.Subject;
+import javax.security.auth.Course;
 
 public class GradeDataRepository {
     private GradeDataClient gradeDataClient;
 
 public GradeDataRepository(GradeStorageMode gradeStorageMode) {
-        this.gradeDataClient = new GradeDataClient(gradeStorageMode);
+        this.gradeDataClient = GradeDataClientFactory.GetDataClient(gradeStorageMode);
     }
 
-    public Grade GetGrade(String subjectName){
-        return gradeDataClient.GetGrade(subjectName);
+    public ArrayList<Grade> GetGrades(String courseName){
+        return gradeDataClient.GetGrade(courseName);
 
     }
 
     public Subject GetSubject(String subjectName)
     {
-        return gradeDataClient.GetSubject(subjectName);
+        return gradeDataClient.GetCourse(CourseName);
     }
 
-    public ArrayList<Subject> GetAllSubjects()
+    public ArrayList<Course> GetAllCourses()
     {
-        return gradeDataClient.GetAllSubjects();
+        return gradeDataClient.GetAllCourses();
     }
 
     public ArrayList<Grade> GetAllGrades()
@@ -36,19 +36,19 @@ public GradeDataRepository(GradeStorageMode gradeStorageMode) {
         gradeDataClient.AddGrade(grade);
     }
 
-    public void AddSubject(Subject subject)
+    public void AddCourse(Course Course)
     {
-        gradeDataClient.AddSubject(subject);
+        gradeDataClient.AddCourse(Course);
     }
 
-    public void DeleteSubject(Subject subject)
+    public void DeleteCourse(Course Course)
     {
-        gradeDataClient.DeleteSubject(subject);
+        gradeDataClient.DeleteCourse(Course);
     }
 
-    public void DeleteGrade(Subject subject)
+    public void DeleteGrade(Course Course)
     {
-        gradeDataClient.DeleteGrade(subject);
+        gradeDataClient.DeleteGrade(Course);
     }
 
 
