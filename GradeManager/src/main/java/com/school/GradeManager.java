@@ -1,5 +1,6 @@
 package com.school;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GradeManager {
@@ -21,7 +22,7 @@ public class GradeManager {
             System.out.println("[3] Enter Grade");
             System.out.println("[4] Calculate GPA");
             System.out.println("[5] Change File Mode");
-            System.out.println("[5] Exit");
+            System.out.println("[6] Exit");
             System.out.print("Choose an option: ");
             String choice = scanner.nextLine();
 
@@ -30,14 +31,35 @@ public class GradeManager {
                     UserViewGrades();
                     break;
                 case "2":
-                    System.out.println("[2] New Course");
-                    // TODO: Implement add grade
+                    
+                    System.out.print("Enter new course name: ");
+
+                    String courseName = scanner.nextLine();
+
+                    gradeDataRepository.AddCourse(new Course(courseName));
+                    System.out.println("Course added.");
+
                     break;
                 case "3":
-                    System.out.println("[3] Enter Grade");
-                    // TODO: Implement view grades
+                    Course selectedCourse = UserSelectCourse();
+                    if (selectedCourse != null) {
+                        System.out.print("Enter grade value: ");
+                        double value = Double.parseDouble(scanner.nextLine());
+
+                        // add logic
+
+                        System.out.println("Grade added.");
+                    }
                     break;
                 case "4":
+                    double gpa = 32132; // gpa should be calculated here 
+
+                    System.out.printf("Current GPA: %.2f\n", gpa);
+                    break;
+                case "5":
+                    // change file logic
+                    break;
+                case "6":
                     running = false;
                     System.out.println("Exiting GradeManager. Goodbye!");
                     break;
