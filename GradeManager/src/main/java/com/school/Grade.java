@@ -2,15 +2,15 @@ package com.school;
 
 public class Grade {
     
-    private Subject subject;
+    private Course subject;
     private double value;
 
-    public Grade(Subject subject, double value) {
+    public Grade(Course subject, double value) {
         this.subject = subject;
         this.value = value;
     }
 
-    public Subject getSubject() {
+    public Course getSubject() {
         return subject;
     }
 

@@ -2,8 +2,6 @@ package com.school;
 
 import java.util.ArrayList;
 
-import javax.security.auth.Course;
-
 public class GradeDataRepository {
     private GradeDataClient gradeDataClient;
 
@@ -15,10 +13,9 @@ public GradeDataRepository(GradeStorageMode gradeStorageMode) {
         return gradeDataClient.GetGrade(courseName);
 
     }
-
-    public Subject GetSubject(String subjectName)
+    public Course GetCourse(String courseName)
     {
-        return gradeDataClient.GetCourse(CourseName);
+        return gradeDataClient.GetCourse(courseName);
     }
 
     public ArrayList<Course> GetAllCourses()

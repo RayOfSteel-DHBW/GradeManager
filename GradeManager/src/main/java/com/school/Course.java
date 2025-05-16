@@ -1,10 +1,10 @@
 package com.school;
 
-public class Subject {
+public class Course {
     
     private String name;
 
-    public Subject(String name) {
+    public Course(String name) {
         this.name = name;
     }
 

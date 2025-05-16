@@ -3,10 +3,12 @@ package com.school;
 import java.util.Scanner;
 
 public class GradeManager {
-    private GradeDataRepository gradeDataRepository;
+    private static GradeDataRepository gradeDataRepository;
 
 
     public static void main(String[] args) {
+        GradeStorageMode mode = UserPickFileMode();
+        gradeDataRepository = new GradeDataRepository(mode);
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
@@ -25,7 +27,7 @@ public class GradeManager {
 
             switch (choice) {
                 case "1":
-                    System.out.println("[1] View Grades");
+                    UserViewGrades();
                     break;
                 case "2":
                     System.out.println("[2] New Course");
@@ -45,5 +47,25 @@ public class GradeManager {
         }
 
         scanner.close();
+    }
+
+
+    private static void UserViewGrades() {
+        Course course = UserSelectCourse();
+        ArrayList<Grade> grades = gradeDataRepository.GetGrades(course.getName());
+        if (grades.isEmpty()) {
+            System.out.println("No grades found for this course.");
+        } else {
+            System.out.println("Grades for " + course.getName() + ":");
+            for (Grade grade : grades) {
+                System.out.println(grade.getValue());
+            }
+        }
+    }
+
+
+    private static Course UserSelectCourse() {
+        gradeDataRepository.GetAllCourses();
+        throw new UnsupportedOperationException("Unimplemented method 'UserSelectCourse'");
     }
 }

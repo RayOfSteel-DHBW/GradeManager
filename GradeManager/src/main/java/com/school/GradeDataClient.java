@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 public abstract class GradeDataClient {
 
-    public Course GetCourse(string name)
+    public Course GetCourse(String name)
     {
-        LoadOrRefresh()
+        ArrayList<Course> courses = GetAllCourses();
+        return courses.stream().filter(course -> course.getName() == name)
+            .findFirst()
+            .orElse(null);
     }
-    public ArrayList<Course> GetAllCourses() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'GetAllCourses'");
-    }
-
+    public abstract ArrayList<Course> GetAllCourses();
     public ArrayList<Grade> GetAllGrades() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'GetAllGrades'");
