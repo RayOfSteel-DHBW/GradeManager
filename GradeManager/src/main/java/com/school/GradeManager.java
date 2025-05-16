@@ -28,7 +28,8 @@ public class GradeManager {
                     break;
                 case "2":
                     System.out.println("[2] New Subject");
-                    // TODO: Implement add grade
+
+                    
                     break;
                 case "3":
                     System.out.println("[3] Enter Grade");

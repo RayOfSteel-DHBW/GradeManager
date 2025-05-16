@@ -11,12 +11,12 @@ public GradeDataRepository(GradeStorageMode gradeStorageMode) {
         this.gradeDataClient = new GradeDataClient(gradeStorageMode);
     }
 
-    public Grade GetGrade(string subjectName){
+    public Grade GetGrade(String subjectName){
         return gradeDataClient.GetGrade(subjectName);
 
     }
 
-    public Subject GetSubject(string subjectName)
+    public Subject GetSubject(String subjectName)
     {
         return gradeDataClient.GetSubject(subjectName);
     }
