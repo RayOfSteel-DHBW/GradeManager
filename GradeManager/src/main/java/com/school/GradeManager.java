@@ -1,55 +1,48 @@
+package com.school;
+
+import java.util.Scanner;
+
 public class GradeManager {
-    private List<Integer> grades;
-    private final String filePath = "grades.txt";
+    private GradeDataRepository gradeDataRepository;
 
-    public GradeManager() {
-        grades = new ArrayList<>();
-        loadGrades();
-    }
-
-    public void addGrade(int grade) {
-        grades.add(grade);
-        saveGrades();
-    }
-
-    public void removeGrade(int grade) {
-        grades.remove(Integer.valueOf(grade));
-        saveGrades();
-    }
-
-    public List<Integer> getGrades() {
-        return new ArrayList<>(grades);
-    }
-
-    private void saveGrades() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            for (int grade : grades) {
-                writer.write(String.valueOf(grade));
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadGrades() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                grades.add(Integer.parseInt(line));
-            }
-        } catch (IOException e) {
-            // File may not exist yet, ignore
-        }
-    }
 
     public static void main(String[] args) {
-        GradeManager manager = new GradeManager();
-        // Example usage
-        manager.addGrade(90);
-        manager.addGrade(85);
-        System.out.println("Grades: " + manager.getGrades());
-        manager.removeGrade(85);
-        System.out.println("Grades after removal: " + manager.getGrades());
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+
+        System.out.println("Welcome to GradeManager!");
+
+        while (running) {
+            System.out.println("\nMenu:");
+            System.out.println("[1] View Grades");
+            System.out.println("[2] New Subject");
+            System.out.println("[3] Enter Grade");
+            System.out.println("[4] Calculate GPA");
+            System.out.println("[5] Exit");
+            System.out.print("Choose an option: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    System.out.println("[1] View Grades");
+                    break;
+                case "2":
+                    System.out.println("[2] New Subject");
+                    // TODO: Implement add grade
+                    break;
+                case "3":
+                    System.out.println("[3] Enter Grade");
+                    // TODO: Implement view grades
+                    break;
+                case "4":
+                    running = false;
+                    System.out.println("Exiting GradeManager. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        }
+
+        scanner.close();
     }
 }
